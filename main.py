@@ -113,4 +113,4 @@ if __name__ == '__main__':
         plot_result(test_result,'Test Performance')
         result_df = test_df[['query_id','prediction']]
         result_df.columns = ['Query ID','Prediction']
-        result_df.to_csv("result.csv",sep='|')
+        result_df.to_csv("result.csv",sep='|',index=False)

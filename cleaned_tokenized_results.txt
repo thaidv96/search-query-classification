@@ -1,4 +1,3 @@
-Loading utils....
 Training with args: Namespace(augment=False, clean=True, mode='train', tokenize=True)
 Training individual model each field
 Start transforming for query....
@@ -45,17 +44,3 @@ Valid F1 micro score 0.777813747706917
 
 Training Meta Model
 Training fold 0
-Valid F1 macro score 0.8423857988505359
-Valid F1 micro score 0.8516720604099245
-Training fold 1
-Valid F1 macro score 0.8320933361274697
-Valid F1 micro score 0.8435814455231931
-Training fold 2
-Valid F1 macro score 0.8422170664894052
-Valid F1 micro score 0.8483540205072854
-Training fold 3
-Valid F1 macro score 0.8487125890987703
-Valid F1 micro score 0.8613059902860226
-Training fold 4
-Valid F1 macro score 0.8471218598155058
-Valid F1 micro score 0.8553696708041013
