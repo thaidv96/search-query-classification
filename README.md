@@ -13,7 +13,7 @@ pip install -r requirements.txt
 > Train model
 
 ```bash
-python main.py --mode=train
+python main.py --mode=train --augment --clean --tokenize
 ```
 
 ## Contributing
