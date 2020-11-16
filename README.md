@@ -15,6 +15,11 @@ pip install -r requirements.txt
 ```bash
 python main.py --mode=train --augment --clean --tokenize
 ```
+> Make prediction on test set
+
+```bash
+python main.py --mode=predict
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
