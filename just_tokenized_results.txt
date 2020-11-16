@@ -1,0 +1,61 @@
+Loading utils....
+Training with args: Namespace(augment=False, clean=False, mode='train', tokenize=True)
+Training individual model each field
+Start transforming for query....
+Training...
+Valid F1 macro score 0.7352962717631634
+Valid F1 micro score 0.7487860148915506
+********************
+
+Start transforming for title_1....
+Training...
+Valid F1 macro score 0.8125908653538267
+Valid F1 micro score 0.8200064745872451
+********************
+
+Start transforming for title_2....
+Training...
+Valid F1 macro score 0.7993159497150506
+Valid F1 micro score 0.8084601273335491
+********************
+
+Start transforming for title_3....
+Training...
+Valid F1 macro score 0.7861386996241343
+Valid F1 micro score 0.7969137800798533
+********************
+
+Start transforming for content_1....
+Training...
+Valid F1 macro score 0.7955214582836444
+Valid F1 micro score 0.8020934498759037
+********************
+
+Start transforming for content_2....
+Training...
+Valid F1 macro score 0.774581606734547
+Valid F1 micro score 0.7837487860148915
+********************
+
+Start transforming for content_3....
+Training...
+Valid F1 macro score 0.7676841249387838
+Valid F1 micro score 0.7786770260062588
+********************
+
+Training Meta Model
+Training fold 0
+Valid F1 macro score 0.844820495050841
+Valid F1 micro score 0.854908306364617
+Training fold 1
+Valid F1 macro score 0.8309464106309774
+Valid F1 micro score 0.8419633225458468
+Training fold 2
+Valid F1 macro score 0.8376105164832743
+Valid F1 micro score 0.8445763626551538
+Training fold 3
+Valid F1 macro score 0.8525733403654089
+Valid F1 micro score 0.8634646519158122
+Training fold 4
+Valid F1 macro score 0.8485420449565316
+Valid F1 micro score 0.8559093362115489

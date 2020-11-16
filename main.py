@@ -14,8 +14,12 @@ warnings.filterwarnings('ignore')
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--mode', default='train', type=str, required=True)
+    parser.add_argument('--augment', dest='augment', action='store_true')
+    parser.add_argument('--clean', dest='clean', action='store_true')
+    parser.add_argument('--tokenize', dest='tokenize', action='store_true')
     args = parser.parse_args()
     if args.mode == 'train':
+        print("Training with args:", args)
         df = load_data("train")
         train_df, valid_df = train_test_split(df, random_state=1,
                                               test_size=0.2,
@@ -25,23 +29,34 @@ if __name__ == '__main__':
                          'title_3', 'content_1', 'content_2', 'content_3']
         results = defaultdict(list)
         # Arguments data with tone removal
-        print("Augmenting data")
-        augmented_df = train_df.copy()
-        for col in input_columns:
-            augmented_df[col] = augmented_df[col].map(unidecode)
-        train_df = pd.concat([train_df, augmented_df], ignore_index=True)
+        if args.augment:
+            print("Augmenting data")
+
+            augmented_df = train_df.copy()
+            for col in input_columns:
+                augmented_df[col] = augmented_df[col].map(unidecode)
+            train_df = pd.concat([train_df, augmented_df], ignore_index=True)
         print("Training individual model each field")
         for col in input_columns:
             print(f"Start transforming for {col}....")
-            pipeline = Pipeline([
+            processors = [
                 ('column_selection', ColumnSelector(col)),
+            ]
+            if args.clean:
+                processors += [
                 ('tag_removal', TagRemoval()),
                 ('quote_removal', QuoteRemoval()),
                 ('to_lowercase', ToLowercase()),
+                ]
+            if args.tokenize:
+                processors += [
                 ('tokenize', Tokenizer()),
                 ('clean', CleanTextField()),
+                ]
+            processors += [
                 ('vectorizer', TfidfVectorizer(ngram_range=(1, 3), min_df=3))
-            ])
+            ]
+            pipeline = Pipeline(processors)
             X_train = pipeline.fit_transform(train_df)
             y_train = train_df['class_label']
             X_valid = pipeline.transform(valid_df)
